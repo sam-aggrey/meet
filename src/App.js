@@ -1,29 +1,26 @@
-// import React from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-//
-// function App() {
-//   return (
-//     <div className="App">
-//
-//     </div>
-//   );
-// }
-// src/App.js
-
-// src/App.js
-
 import React, { Component } from 'react';
 import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
+import NumberOfEvents from './NumberOfEvents';
+import {extractLocations } from './api';
 
 class App extends Component {
+  constructor(props) {
+  super(props)
+
+  this.state = {
+    events: [],
+    locations: [],
+    numberOfEvents: 32,
+  }
+}
   render() {
     return (
       <div className="App">
         <CitySearch />
         <EventList />
+        <NumberOfEvents />
       </div>
     );
   }

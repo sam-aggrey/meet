@@ -2,24 +2,29 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NumberOfEvents from '../NumberOfEvents';
 
-describe('<NumberOfEvents /> component', () => {
+describe("<NumberOfEvents /> component unit test", () => {
   let NumberOfEventsWrapper;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberOfEvents updateEventCount={() => {}} />)
+    NumberOfEventsWrapper = shallow(<NumberOfEvents />);
   });
 
-  test('render NumberOfEvents', () => {
-    expect(NumberOfEventsWrapper.find('.number-of-events')).toHaveLength(1);
-  });
+   test('component render input field', () => {
+     expect(NumberOfEventsWrapper.find('.numberInput')).toHaveLength(1);
+   });
+   // test('component render infoText paragraph', () => {
+   //   expect(NumberOfEventsWrapper.find('.infoText')).toHaveLength(1);
+   // });
 
-  test('render 8 events', () => {
-    const numberOfEvents = NumberOfEventsWrapper.prop('numberOfEvents');
-    expect(NumberOfEventsWrapper.find('.eventNumber').prop('value')).toBe(numberOfEvents);
-  });
+   test('state (given from parent as prop) of eventCounter is 32 by default', () => {
+     const eventCounter = NumberOfEventsWrapper.prop('eventCounter');
+     expect(NumberOfEventsWrapper.find('.numberInput').prop('value')).toBe(eventCounter);
+   });
 
-  test('change number of events with input value', () => {
-    const inputValue = { target: { value: 20}};
-    NumberOfEventsWrapper.find('.eventNumber').simulate('change', inputValue);
-    expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(20);
-  });
-});
+   // test('component state of infoText is empty string by default', () => {
+   //   const infoText = NumberOfEventsWrapper.state('infoText');
+   //   expect(NumberOfEventsWrapper.find('.infoText').text('.infoText')).toBe(infoText);
+   // });
+
+
+
+})

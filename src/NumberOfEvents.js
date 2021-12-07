@@ -1,46 +1,52 @@
-import React, { Component } from "react";
-//import { ErrorAlert } from './Alert';
+import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
-  state = {
-    eventCount: 32,
-  };
+  constructor(props) {
+    super(props)
 
-  // change number of events list
-  handleEventInputChanged = (event) => {
-    const eventCount = event.target.value;
-    if (eventCount < 1) {
-      return this.setState({
-        eventCount: "",
-        //errorText: `Select number between 1 and 32`,
-      });
-    } else if (eventCount > 32) {
-      return this.setState({
-        eventCount: "",
-        //errorText: `Select number between 1 and 32`,
-      });
-    } else {
-      this.setState({
-        eventCount,
-      //  errorText: "",
-      });
-      // this.props.updateEvents("", eventCount);
-    }
-  };
+    // this.state = {
+    //   infoText: ''
+    // }
+  }
 
-   render() {
+  // handleInputChanged = (event) => {
+  //   const newCounter = event.target.value;
+  //    if (isNaN(newCounter) || newCounter < 1) {
+  //     this.setState({
+  //       eventCounter: '',
+  //       infoText: 'Please write a number',
+  //     })
+  //   } else {
+  //     this.setState({
+  //       eventCounter: newCounter,
+  //       infoText: ''
+  //     });
+  //   };
+  //   this.props.updateEventNumber(event.target.value);
+  //}
+
+
+  render() {
+
+
     return (
-      <div className='numberOfEvents'>
-        <label>Number of Events</label>
-        <input
-          type='number'
-          name='numberOfEvents'
-          className='numberOfEventsInput'
-          value={this.state.eventCount}
-          onChange={this.handleEventInputChanged}
-        />
+      <div className="EventNumberComponent">
+
+      <label htmlFor="numberOfEventsInput"> Number of Events on Page:
+
+
+      <input
+        id="numberOfEventsInput"
+        type="number"
+        className="numberInput"
+        value={this.props.eventCounter}
+       />
+      </label>
+
+
+
       </div>
-    );
+    )
   }
 }
 
