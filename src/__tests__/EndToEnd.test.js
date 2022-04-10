@@ -9,9 +9,9 @@ beforeAll(async () => {
   await page.waitForSelector('.event');
 });
 
-afterAll(() => {
-  browser.close();
-});
+// afterAll(() => {
+//   browser.close();
+// });
 
 describe('show/hide an event details', () => {
 
@@ -29,5 +29,8 @@ describe('show/hide an event details', () => {
      await page.click('.event .show-details-btn');
      const eventDetails = await page.$('.event .event__Details');
      expect(eventDetails).toBeNull();
+   });
+   afterAll(() => {
+     browser.close();
    });
 });

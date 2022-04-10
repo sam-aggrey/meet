@@ -7,27 +7,40 @@ import App from '../App';
 const feature = loadFeature('./src/features/specifyNumberOfEvents.feature');
 
 defineFeature(feature, test => {
-
   test('When user hasn’t specified a number, 16 is the default number', ({ given, when, then }) => {
+       given('the user is on the main page', () => {
 
-    let AppWrapper;
-    given('the user is on the main page', () => {
-      AppWrapper = mount(<App />);
+       });
 
-    });
+       when('the user does not specify number of events', () => {
+
+       });
+
+       then(/^the user should see (\d+) events by default$/, (arg0) => {
+
+       });
+   });
+
+  // test('When user hasn’t specified a number, 32 is the default number', ({ given, when, then }) => {
+  //
+  //   let AppWrapper;
+  //   given('the user is on the main page', () => {
+  //     AppWrapper = mount(<App />);
+  //
+  //   });
 
 
-    when('the user does not specify number of events', () => {
-      expect(AppWrapper.state('numberOfEvents')).toBe(16);
-      AppWrapper.update();
-    });
-
-
-    then('the user should see 16 events by default', () => {
-      expect(AppWrapper.state('numberOfEvents')).toBe(16);
-
-    });
-  });
+  //   when('the user does not specify number of events', () => {
+  //     expect(AppWrapper.state('numberOfEvents')).toBe(32);
+  //     AppWrapper.update();
+  //   });
+  //
+  //
+  //   then('the user should see 32 events by default', () => {
+  //     expect(AppWrapper.state('numberOfEvents')).toBe(32);
+  //
+  //   });
+  // });
 
   test('User can change the number of events they want to see', ({ given, when, then }) => {
 
@@ -48,5 +61,4 @@ defineFeature(feature, test => {
       expect(AppWrapper.state("numberOfEvents")).toEqual(10);
     });
   });
-
-});
+  });
